@@ -1,0 +1,17 @@
+inp_file: wadi_map.inp
+iterations: 12000
+log_level: info
+mininet_cli: false
+network_topology_type: complex
+plcs:
+- actuators:
+  - P_RAW1
+  - V_PUB
+  name: PLC1
+  sensors:
+  - T0
+- actuators:
+  - V_ER2i
+  name: PLC2
+  sensors:
+  - T2
