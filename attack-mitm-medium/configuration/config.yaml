@@ -1,0 +1,37 @@
+attacks:
+  device_attacks:
+  - actuator: V_ER2i
+    command: open
+    name: V_ER2i_attack
+    trigger:
+      end: 3500
+      start: 2500
+      type: time
+  network_attacks:
+  - name: spoof
+    tags:
+    - tag: T2
+      value: 0.0
+    target: PLC2
+    trigger:
+      end: 3500
+      start: 2500
+      type: time
+    type: mitm
+inp_file: wadi_map.inp
+iterations: 12000
+log_level: info
+mininet_cli: false
+network_topology_type: complex
+plcs:
+- actuators:
+  - P_RAW1
+  - V_PUB
+  name: PLC1
+  sensors:
+  - T0
+- actuators:
+  - V_ER2i
+  name: PLC2
+  sensors:
+  - T2
