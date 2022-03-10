@@ -1,0 +1,41 @@
+attacks:
+  device_attacks:
+  - actuator: P_RAW1
+    command: closed
+    name: Close_PRAW_from_iteration_500_to_1000
+    trigger:
+      end: 1000
+      start: 500
+      type: time
+  - actuator: P_RAW1
+    command: closed
+    name: Close_PRAW1_when_T2_<_0.16
+    trigger:
+      sensor: T2
+      type: below
+      value: 0.16
+  - actuator: P_RAW1
+    command: closed
+    name: Close_PRAW1_when_0.10_<_T2_<_0.16
+    trigger:
+      lower_value: 0.1
+      sensor: T2
+      type: between
+      upper_value: 0.16
+inp_file: wadi_map.inp
+iterations: 1500
+log_level: info
+mininet_cli: false
+network_topology_type: complex
+plcs:
+- actuators:
+  - P_RAW1
+  - V_PUB
+  name: PLC1
+  sensors:
+  - T0
+- actuators:
+  - V_ER2i
+  name: PLC2
+  sensors:
+  - T2
